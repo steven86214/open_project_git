@@ -1,0 +1,123 @@
+\documentclass{scrreprt}
+
+\usepackage{listings}
+\usepackage{underscore}
+\usepackage[bookmarks=true]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\def\myversion{1.0 }
+\date{}
+
+\usepackage{hyperref}
+\begin{document}
+
+\begin{flushright}
+    \rule{16cm}{5pt}\vskip1cm
+    \begin{bfseries}
+        \Huge{SOFTWARE REQUIREMENTS\\ SPECIFICATION}\\
+        \vspace{1.9cm}
+        for\\
+        \vspace{1.9cm}
+        $<$Final Project$>$\\
+        \vspace{1.9cm}
+        Prepared by $<$Team 2$>$\\
+        \vspace{1.9cm}
+        \today\\
+    \end{bfseries}
+\end{flushright}
+
+\tableofcontents
+
+
+\chapter{Introduction}
+
+\section{Purpose}
+%此model的用途
+
+\section{Intended Audience and Reading Suggestions}
+%目標使用者及閱讀建議
+
+\section{Project Scope}
+%描述指定的軟件。並包括收益，目標和目標。這應該與整體業務目標相關，特別是如果開發之外的團隊可以訪問SRS。
+%表徵產品，服務或結果的特徵和功能
+%example: 該軟件面向需要創建季度課程安排的學生和行政人員，可供個人使用或分發給學生。 該軟件應允許用戶創建計劃，查看課程先決條件，並根據單獨的需求文件驗證計劃。
+The software is targeted at both students and administrative faculty who need to create a quarterly course schedule, either for personal use or to be distributed to students. The software shall allow users to create a schedule, view course prerequisites, and validate a schedule against a separate requirements file.
+
+\chapter{Overall Description}
+
+\section{Product Perspective}
+%產品視角
+%example: 該軟件將是一個新的，獨立的產品。 它不是基於現有項目。
+The software will be a new, self-contained product. It is not based on an existing project.
+
+\section{Product Functions}
+%產品功能
+
+\section{User Classes and Characteristics}
+%用戶群跟特徵
+
+\section{Operating Environment}
+%操作環境
+%example
+The system shall use the Java SE 6 platform. \\
+The system shall use the Swing toolkit for GUI elements.
+
+\section{Design and Implementation Constraints}
+%設計和實作問題
+%example: 用戶應指定特定課程滿足的要求。
+Users shall specify which requirements specific courses fulfill.
+
+\section{Assumptions and Dependencies}
+%假設及依據
+%example: 校園部門將提供一個XML文件，詳細說明了該部門特定目錄年後學生的要求。
+Campus departments will provide an XML file detailing the requirements for students following a specific catalog year in that department. 
+
+\chapter{External Interface Requirements}
+
+\section{User Interfaces}
+%使用者介面
+
+\section{Hardware Interfaces}
+%硬體介面
+
+\section{Software Interfaces}
+%軟體介面
+
+
+\chapter{System Features}
+
+\section{Description and Priority}
+%描述及優先權
+%example: 用戶可以通過向網格添加課程對象來創建季度課程計劃，其中的列表示季度。 可以刪除課程並通過拖放在四分之一之間移動。 可以編輯課程數據。 用戶可以指定必備和必修課程以及課程實現的單元數。
+Users may create a quarterly course schedule by adding course objects to a grid, the columns of which represent quarters. Courses may be deleted and moved between quarters via drag-and-drop. Course data may be edited. Users may specify prerequisite and corequisite courses as well as the number of units the course fulfills.
+
+\section{Stimulus/Response Sequences}
+%一個request一個response
+%example
+Stimulus: User requests to create a new course in a specific quarter. \\
+Response: System provides a form for the user to enter the course data. \\
+Stimulus: User requests to delete a course. \\
+Response: The course is removed from the flowchart. \\
+Stimulus: User requests to update data for a course. \\
+Response: The course data is presented in an editable format. When finished, \\
+changes may be saved or discarded. \\
+Stimulus: User requests to move a course to a different quarter. \\
+Response: The course is moved to the column representing the desired quarter in the flowchar
+
+\section{Functional Requirements}
+%功能需求
+
+
+\chapter{Other Nonfunctional Requirements}
+
+\section{Performance Requirements}
+%性能需求
+
+\section{Safety Requirements}
+%安全需求(optional)
+
+\section{Security Requirements}
+%安全需求(optional)
+
+\end{document}
