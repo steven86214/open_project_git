@@ -3,30 +3,24 @@
 \usetheme{Luebeck}
 \usepackage{CJKutf8}
 \usepackage{graphicx}
+\usepackage{setspace}
 
 
-\setcounter {tocdepth}{ 3}
 \title{Final Presentation}
-
+\subtitle{Team 2}
 \begin{document}
 
 \begin{frame}
   \titlepage
 \end{frame}
 
-
-
-   \tableofcontents
-
-
-
-
-
+ \tableofcontents
 
 \section{Producing presentation slides using the LaTex \medskip}
 \begin{frame}{Producing presentation slides using the LaTex}
-	(Fig.\,\ref{fig:1} )
+	(Fig.\,\ref{fig:1})
     \begin{figure}
+  \includegraphics[width=0.7\linewidth]{latex.jpg}
     \caption{1}
     \label{fig:1}
   \end{figure}
@@ -51,18 +45,20 @@
 \subsubsection{Introduction to the problem you're trying to solve \medskip}
 \begin{frame}{Introduction to the problem you're trying to solve}
   \begin{CJK}{UTF8}{bkai}
-  \linespread{1.5}\selectfont
-	\qquad 期末專題主要是想解決我們對大自然的好奇心，
+      \begin{spacing}{1.5}\qquad
+	期末專題主要是想解決我們對大自然的好奇心，
 	當我們在校園探索當中，有很多花我們不知道其名稱，
 	透過這門課所學的知識，利用影像辨識的方法，將各種花朵辨識出來。
+	\end{spacing}
   \end{CJK}
 \end{frame}
 
 \subsection{Methodology}
 \subsubsection{ Input of your model }
 \begin{frame}{Input of your model }
-  (Fig.\,\ref{fig:2} )
+  (Fig.\,\ref{fig:2})
     \begin{figure}
+    \includegraphics[width=0.7\linewidth]{input.jpg}
     \caption{2}
     \label{fig:2}
   \end{figure}
@@ -71,9 +67,9 @@
 \subsubsection{Output of your model }
 \begin{frame}{Output of your model }
   \begin{CJK}{UTF8}{bkai}
-	Prediction result(包含: 預測的label, 其信心度)(Fig.\,\ref{fig:3} )
+	Prediction result(包含: 預測的label, 其信心度)(Fig.\,\ref{fig:3})
     \begin{figure}
-      \includegraphics[width=0.3\linewidth]{layer.jpg}
+      \includegraphics[width=0.3\linewidth]{output.jpg}
       \caption{3}
       \label{fig:3}
     \end{figure}
@@ -82,7 +78,7 @@
 
 \subsubsection{Each layer of your model }
 \begin{frame}{Each layer of your model }
-	Expansion layer, convolution layer, projection layer… (Fig.\,\ref{fig:4} )
+	Expansion layer, convolution layer, projection layer… (Fig.\,\ref{fig:4})
   \begin{figure}
     \includegraphics[width=0.3\linewidth]{layer.jpg}
     \caption{4}
@@ -95,16 +91,34 @@
   \begin{CJK}{UTF8}{bkai}
 	We save as filename.pb(pb檔)
    \end{CJK}
+  \begin{figure}
+      \includegraphics[width=0.6\linewidth]{pbfile.jpg}(Fig.\,\ref{fig:5})
+      \caption{5}
+      \label{fig:5}
+    \end{figure}
 \end{frame}
 
 \subsubsection{File size of your mode }
 \begin{frame}{File size of your model }
-
+ \begin{figure}
+      \includegraphics[width=0.65\linewidth]{pbfile.jpg}(Fig.\,\ref{fig:6})
+      \caption{6}
+      \label{fig:6}
+    \end{figure}
 \end{frame}
 
 \subsubsection{What's your loss functions, and why?}
 \begin{frame}{What's your loss functions, and why?}
-
+  \begin{CJK}{UTF8}{bkai}
+	Cross-entropy:\\
+	在分類的狀況下，通常希望錯誤率越小越好，所以用錯誤率當損失函數是一個選項，但實際上我們並不會直接拿分類錯誤率當作損失函數進行最佳化，
+	用錯誤率得到只知道此筆資料判別錯誤，但模型不會知道現在的模型錯的很多還是很少，
+	這樣模型在學習時根本不知道最佳的模型在那的方向，也不知道要更新多少。
+	\\
+	Cross-entropy 是 所有類別的entropy的總和，簡單來說，
+	就是各類別的訊息量的平均量(entropy)的總和。entropy也可以解釋成資料的不確定性，
+	所以越低代表資料越穩定也就是說model越好。
+   \end{CJK}
 \end{frame}
 
 \subsubsection{What's your optimizer and the setting of hyperparameter?  \bigskip \bigskip \bigskip \bigskip}
@@ -114,11 +128,29 @@
 %stop
 
 
-\subsection{Dataset}
+\subsection{Datase}
 \subsubsection{The size of your dataset should be larger than 1K}
 \begin{frame}{The size of your dataset should be larger than 1K}
+The size of out dataset (Fig.\,\ref{fig:7})
+ \begin{figure}
+    \includegraphics[width=5cm,height=5cm]{dataset(1).png}
+    \caption{7}
+    \label{fig:7}
+  \end{figure}
 
 \end{frame}
+
+
+\begin{frame}{The size of your dataset should be larger than 1K(cont.)}
+The size of out dataset (Fig.\,\ref{fig:8})
+ \begin{figure}
+    \includegraphics[width=8cm]{dataset(2).png}
+    \caption{8}
+    \label{fig:8}
+  \end{figure}
+
+\end{frame}
+
 \subsubsection{How you collect/build your dataset?}
 \begin{frame}{How you collect/build your dataset?}
   \begin{CJK}{UTF8}{bkai}
@@ -128,17 +160,17 @@
 
 \subsubsection{How many paired training samples in your dataset?}
 \begin{frame}{How many paired training samples in your dataset?}
-
+training:validation:testing = 8:1:1
 \end{frame}
 
 \subsubsection{How many paired validating samples in your dataset?}
 \begin{frame}{How many paired validating samples in your dataset?}
-
+training:validation:testing = 8:1:1
 \end{frame}
 
 \subsubsection{How many paired testing samples in your dataset?}
 \begin{frame}{How many paired testing samples in your dataset?}
-
+training:validation:testing = 8:1:1
 \end{frame}
 
 \subsection{Experimental Evaluation }
@@ -154,11 +186,63 @@ CPU
 
 \subsubsection{Qualitative evaluation}
 \begin{frame}{Qualitative evaluation}
+\begin{CJK}{UTF8}{bkai}
+\small 共10種花，對每種花各作五次測試的結果 共50個測資皆正確。(Fig.\,\ref{fig:9})
+ \end{CJK}
+ \begin{figure}
+    \includegraphics[width=7cm,height=5cm]{Qualitative(1).png}
+    \caption{9}
+    \label{fig:9}
+  \end{figure}
+\end{frame}
 
+
+\begin{frame}{Qualitative evaluation(cont.)}
+\begin{CJK}{UTF8}{bkai}
+(Fig.\,\ref{fig:10})
+\end{CJK}
+ \begin{figure}
+    \includegraphics[width=7cm,height=5cm]{Qualitative(2).png}
+    \caption{10}
+    \label{fig:10}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Qualitative evaluation(cont.)}
+\begin{CJK}{UTF8}{bkai}
+(Fig.\,\ref{fig:11})
+ \end{CJK}
+ \begin{figure}
+    \includegraphics[width=7cm,height=5cm]{Qualitative(3).png}
+    \caption{11}
+    \label{fig:11}
+  \end{figure}
+\end{frame}
+
+
+\begin{frame}{Qualitative evaluation(cont.)}
+\begin{CJK}{UTF8}{bkai}
+(Fig.\,\ref{fig:12})
+ \end{CJK}
+ \begin{figure}
+    \includegraphics[width=7cm,height=5cm]{Qualitative(4).png}
+    \caption{12}
+    \label{fig:12}
+  \end{figure}
 \end{frame}
 
 \subsubsection{Quantitative evaluation}
 \begin{frame}{Quantitative evaluation}
+
+\begin{CJK}{UTF8}{bkai}
+(Fig.\,\ref{fig:13})
+ \end{CJK}
+ \begin{figure}
+    \includegraphics[width=10cm]{Qauntitative.png}
+    \caption{13}
+    \label{fig:13}
+  \end{figure}
+
 
 \end{frame}
 
@@ -166,19 +250,6 @@ CPU
 \begin{frame}{Live demo of your work}
 
 \end{frame}
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 \end{document}
