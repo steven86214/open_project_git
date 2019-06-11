@@ -5,6 +5,8 @@
 \usepackage[bookmarks=true]{hyperref}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
+\usepackage{CJKutf8}
+\usepackage{latexsym}
 
 \def\myversion{1.0 }
 \date{}
@@ -34,44 +36,56 @@
 
 \section{Purpose}
 %此model的用途
+\begin{CJK}{UTF8}{bkai}
+	該模型主要用於識別不同種類的花卉。\\
+	有了這個模型，我們就不必記住花卉大量且不同的特徵，能夠輕易地識別出不同的品種同時也具有較高的辨別力。
+\end{CJK}
 
 \section{Intended Audience and Reading Suggestions}
 %目標使用者及閱讀建議
+\begin{CJK}{UTF8}{bkai}
+	主要面向為對於花卉鑑賞感興趣, 但無一定基礎的人，也可以用於教學。\\
+如果數據量足夠大，或許能夠突變種是從哪種植物轉變而來，對植物相關領域有所幫助。
+\end{CJK}
 
 \section{Project Scope}
-%描述指定的軟件。並包括收益，目標和目標。這應該與整體業務目標相關，特別是如果開發之外的團隊可以訪問SRS。
-%表徵產品，服務或結果的特徵和功能
-%example: 該軟件面向需要創建季度課程安排的學生和行政人員，可供個人使用或分發給學生。 該軟件應允許用戶創建計劃，查看課程先決條件，並根據單獨的需求文件驗證計劃。
-The software is targeted at both students and administrative faculty who need to create a quarterly course schedule, either for personal use or to be distributed to students. The software shall allow users to create a schedule, view course prerequisites, and validate a schedule against a separate requirements file.
+\begin{CJK}{UTF8}{bkai}
+為了講求辨識速度及控制model大小，以元智校園內出現的花朵為主，來訓練model。且訓練的data也是直接在學校內取材，以免因環境差異變化過大，導致辨識率下降。
+\end{CJK}
 
 \chapter{Overall Description}
 
 \section{Product Perspective}
 %產品視角
-%example: 該軟件將是一個新的，獨立的產品。 它不是基於現有項目。
-The software will be a new, self-contained product. It is not based on an existing project.
+\begin{CJK}{UTF8}{bkai}
+只要有行動裝置就能夠隨時辨識想要了解的花朵種類。
+\end{CJK}
 
 \section{Product Functions}
-%產品功能
+%產品功能.
+\begin{CJK}{UTF8}{bkai}
+	從App開啟手機相機對準要辨識的花朵，系統偵測到後，
+\end{CJK}
 
 \section{User Classes and Characteristics}
 %用戶群跟特徵
 
 \section{Operating Environment}
 %操作環境
-%example
-The system shall use the Java SE 6 platform. \\
-The system shall use the Swing toolkit for GUI elements.
+Smart Phone with Android OS ver.8.0 
 
 \section{Design and Implementation Constraints}
 %設計和實作問題
-%example: 用戶應指定特定課程滿足的要求。
-Users shall specify which requirements specific courses fulfill.
+\begin{CJK}{UTF8}{bkai}
+	因本專題欲專注於辨識校園內的花朵，所以在資料收集方面只有拍攝校園內的花朵之外貌，因此，本模型在對同種花但是長相有很大的差異的花(花在不同環境下，顏色、樣貌等會略有不同)，預測準度及信心度會較低。 \\
+	但是，從另一個角度來說，沒有其他環境下生長的花的資料，反而更能提升此模型對本校園中生長的花的預測準度。
+\end{CJK}
 
 \section{Assumptions and Dependencies}
 %假設及依據
-%example: 校園部門將提供一個XML文件，詳細說明了該部門特定目錄年後學生的要求。
-Campus departments will provide an XML file detailing the requirements for students following a specific catalog year in that department. 
+\begin{CJK}{UTF8}{bkai}
+	本專題原本採用InceptionV3 的影像辨識模型，但是若要將他移植到APP上，model size太大了，且InceptionV3架構過於龐大，可能不利於行動裝置的即時辨識，因此我們改用MobileNet模型，其缺點就是準確度會稍比InceptionV3低，但是換來了更快的速度跟更小的空間。
+\end{CJK}
 
 \chapter{External Interface Requirements}
 
@@ -80,9 +94,15 @@ Campus departments will provide an XML file detailing the requirements for stude
 
 \section{Hardware Interfaces}
 %硬體介面
+ASUS_Z012DA (Smart Phone)
 
 \section{Software Interfaces}
 %軟體介面
+\subsection {tensorflow package}  
+
+
+\subsection {android studio}
+
 
 
 \chapter{System Features}
@@ -93,31 +113,20 @@ Campus departments will provide an XML file detailing the requirements for stude
 Users may create a quarterly course schedule by adding course objects to a grid, the columns of which represent quarters. Courses may be deleted and moved between quarters via drag-and-drop. Course data may be edited. Users may specify prerequisite and corequisite courses as well as the number of units the course fulfills.
 
 \section{Stimulus/Response Sequences}
-%一個request一個response
-%example
-Stimulus: User requests to create a new course in a specific quarter. \\
-Response: System provides a form for the user to enter the course data. \\
-Stimulus: User requests to delete a course. \\
-Response: The course is removed from the flowchart. \\
-Stimulus: User requests to update data for a course. \\
-Response: The course data is presented in an editable format. When finished, \\
-changes may be saved or discarded. \\
-Stimulus: User requests to move a course to a different quarter. \\
-Response: The course is moved to the column representing the desired quarter in the flowchar
+
 
 \section{Functional Requirements}
 %功能需求
-
+\begin{CJK}{UTF8}{bkai}
+	判斷出元智大學校園的花的種類。
+\end{CJK}
 
 \chapter{Other Nonfunctional Requirements}
 
 \section{Performance Requirements}
 %性能需求
-
-\section{Safety Requirements}
-%安全需求(optional)
-
-\section{Security Requirements}
-%安全需求(optional)
+\begin{CJK}{UTF8}{bkai}
+	即時的(小於1s)，準確的判斷出元智大學校園內花的種類( 趨近100\% )。
+\end{CJK}
 
 \end{document}
