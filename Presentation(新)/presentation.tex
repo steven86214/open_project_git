@@ -1,5 +1,5 @@
 \documentclass{beamer}
-
+%\hypersetup{pdfpagemode=FullScreen}
 \usetheme{Luebeck}
 \usepackage{CJKutf8}
 \usepackage{graphicx}
@@ -31,19 +31,26 @@
 
 \subsection{Introduction}
 
+\begin{frame}{Introduction}
+\center \huge Introduction
+\end{frame} 
+
+
 \subsubsection{Introduction to your team}
-\begin{frame}{Introduction to your team}
+\begin{frame}{Our team members}
 \begin{itemize}
-  \item  \begin{CJK}{UTF8}{bkai}1053311 李厚徵\end{CJK}
-  \item  \begin{CJK}{UTF8}{bkai}1041517 桑翊軒\end{CJK}
-  \item \begin{CJK}{UTF8}{bkai}1053312 陳冠廷\end{CJK}
-  \item  \begin{CJK}{UTF8}{bkai}1051535 楊宗霖\end{CJK}
-  \item  \begin{CJK}{UTF8}{bkai}1053318 張嘉祐\end{CJK}
+\begin{CJK}{UTF8}{bkai}
+  \item   1053311 李厚徵
+  \item   1041517 桑翊軒
+  \item   1053312 陳冠廷
+  \item   1051535 楊宗霖
+  \item   1053318 張嘉祐
+\end{CJK}
 \end{itemize}
 \end{frame}
 
 \subsubsection{Introduction to the problem you're trying to solve \medskip}
-\begin{frame}{Introduction to the problem you're trying to solve}
+\begin{frame}{The problem we're trying to solve}
   \begin{CJK}{UTF8}{bkai}
       \begin{spacing}{1.5}\qquad
 	期末專題主要是想解決我們對大自然的好奇心，
@@ -54,61 +61,80 @@
 \end{frame}
 
 \subsection{Methodology}
-\subsubsection{ Input of your model }
-\begin{frame}{Input of your model }
-  (Fig.\,\ref{fig:2})
+\begin{frame}{Methodology}
+\center \huge Methodology
+\end{frame}
+
+\subsubsection{Input of your model }
+\begin{frame}{Model}
+  input of our model (Fig.\,\ref{fig:2})
     \begin{figure}
-    \includegraphics[width=0.7\linewidth]{input.jpg}
+   \includegraphics[width=0.7\linewidth]{input.jpg}
     \caption{2}
     \label{fig:2}
   \end{figure}
 \end{frame}
 
-\subsubsection{Output of your model }
-\begin{frame}{Output of your model }
+\subsubsection{Output of your model}
+\begin{frame}{Model(cont.)}
   \begin{CJK}{UTF8}{bkai}
-	Prediction result(包含: 預測的label, 其信心度)(Fig.\,\ref{fig:3})
+output of our model , prediction result(包含: 預測的label, 其信心度)(Fig.\,\ref{fig:3})
+  \end{CJK}
     \begin{figure}
-      \includegraphics[width=0.3\linewidth]{output.jpg}
+      \includegraphics[width=7cm,height=5cm]{output(1).jpg}
       \caption{3}
       \label{fig:3}
     \end{figure}
-   \end{CJK}
+\end{frame}
+
+\begin{frame}{Model(cont.)}
+  \begin{CJK}{UTF8}{bkai}
+(Fig.\,\ref{fig:4})
+  \end{CJK}
+    \begin{figure}
+      \includegraphics[width=7cm,height=6cm]{output(2).jpg}
+      \caption{4}
+      \label{fig:4}
+    \end{figure}
 \end{frame}
 
 \subsubsection{Each layer of your model }
-\begin{frame}{Each layer of your model }
-	Expansion layer, convolution layer, projection layer… (Fig.\,\ref{fig:4})
+\begin{frame}{Model(cont.)}
+ \begin{CJK}{UTF8}{bkai}
+ 我們的model層級分成: Expansion layer, convolution layer, projection layer… (Fig.\,\ref{fig:5})
+\end{CJK}
   \begin{figure}
     \includegraphics[width=0.3\linewidth]{layer.jpg}
-    \caption{4}
-    \label{fig:4}
+    \caption{5}
+    \label{fig:5}
   \end{figure}
 \end{frame}
 
 \subsubsection{How you save your model? }
-\begin{frame}{How you save your model? }
+\begin{frame}{Model(cont.)}
   \begin{CJK}{UTF8}{bkai}
 	We save as filename.pb(pb檔)
    \end{CJK}
   \begin{figure}
-      \includegraphics[width=0.6\linewidth]{pbfile.jpg}(Fig.\,\ref{fig:5})
-      \caption{5}
-      \label{fig:5}
-    \end{figure}
-\end{frame}
-
-\subsubsection{File size of your mode }
-\begin{frame}{File size of your model }
- \begin{figure}
-      \includegraphics[width=0.65\linewidth]{pbfile.jpg}(Fig.\,\ref{fig:6})
+      \includegraphics[width=0.6\linewidth]{pbfile.jpg}(Fig.\,\ref{fig:6})
       \caption{6}
       \label{fig:6}
     \end{figure}
 \end{frame}
 
-\subsubsection{What's your loss functions, and why?}
-\begin{frame}{What's your loss functions, and why?}
+\subsubsection{File size of your model }
+\begin{frame}{Model(cont.)}
+ \begin{figure}
+ \begin{CJK}{UTF8}{bkai}
+   model大小16755KB   \includegraphics[width=0.65\linewidth]{pbfile.jpg}(Fig.\,\ref{fig:7})
+  \end{CJK}
+      \caption{7}
+      \label{fig:7}
+    \end{figure}
+\end{frame}
+
+\subsubsection{What's your loss functions, and why? \bigskip \bigskip \bigskip  \bigskip  \bigskip   }
+\begin{frame}{Loss function}
   \begin{CJK}{UTF8}{bkai}
 	Cross-entropy:\\
 	在分類的狀況下，通常希望錯誤率越小越好，所以用錯誤率當損失函數是一個選項，但實際上我們並不會直接拿分類錯誤率當作損失函數進行最佳化，
@@ -121,135 +147,144 @@
    \end{CJK}
 \end{frame}
 
-\subsubsection{What's your optimizer and the setting of hyperparameter?  \bigskip \bigskip \bigskip \bigskip}
-\begin{frame}{What's your optimizer and the setting of hyperparameter? }
-
-\end{frame}
-%stop
 
 
-\subsection{Datase}
+
+
+\subsection{Dataset}
 \subsubsection{The size of your dataset should be larger than 1K}
-\begin{frame}{The size of your dataset should be larger than 1K}
-The size of out dataset (Fig.\,\ref{fig:7})
+
+\begin{frame}{Dataset}
+
+\center \huge Dataset
+\end{frame}
+
+\begin{frame}{Dataset}
+  \begin{CJK}{UTF8}{bkai}
+The size of our dataset  大小4.85GB 共有11098個檔案 (Fig.\,\ref{fig:8})
+   \end{CJK}
  \begin{figure}
     \includegraphics[width=5cm,height=5cm]{dataset(1).png}
-    \caption{7}
-    \label{fig:7}
-  \end{figure}
-
-\end{frame}
-
-
-\begin{frame}{The size of your dataset should be larger than 1K(cont.)}
-The size of out dataset (Fig.\,\ref{fig:8})
- \begin{figure}
-    \includegraphics[width=8cm]{dataset(2).png}
     \caption{8}
     \label{fig:8}
   \end{figure}
 
 \end{frame}
 
+
+\begin{frame}{Dataset(cont.)}
+ \begin{CJK}{UTF8}{bkai}
+dataset 檔案 (Fig.\,\ref{fig:9})
+ \begin{figure}
+    \includegraphics[width=8cm]{dataset(2).png}
+    \caption{9}
+    \label{fig:9}
+  \end{figure}
+  \end{CJK}
+\end{frame}
+
 \subsubsection{How you collect/build your dataset?}
-\begin{frame}{How you collect/build your dataset?}
+\begin{frame}{Dataset(cont.)}
   \begin{CJK}{UTF8}{bkai}
-	對花做360度的影片拍攝，再將影片以frame切割。
+	dataset的收集方法我們是對花做360度的影片拍攝，再將影片以frame切割得到圖片。\\
+           \bigskip
+   	training、validating以及testing的配對樣本數比例是:
+	training:validating:testing = 8:1:1
    \end{CJK}
 \end{frame}
 
 \subsubsection{How many paired training samples in your dataset?}
-\begin{frame}{How many paired training samples in your dataset?}
-training:validation:testing = 8:1:1
-\end{frame}
+
 
 \subsubsection{How many paired validating samples in your dataset?}
-\begin{frame}{How many paired validating samples in your dataset?}
-training:validation:testing = 8:1:1
-\end{frame}
+
 
 \subsubsection{How many paired testing samples in your dataset?}
-\begin{frame}{How many paired testing samples in your dataset?}
-training:validation:testing = 8:1:1
-\end{frame}
+
 
 \subsection{Experimental Evaluation }
+\begin{frame}{Experimental Evaluation}
+\center \huge Experimental Evaluation
+\end{frame}
+
 \subsubsection{Experimental environment (CPU, GPU, memory,…,etc.)}
-\begin{frame}{Experimental environment (CPU, GPU, memory,…,etc.)}
-CPU
+\begin{frame}{Experimental Evaluation}
+ \begin{CJK}{UTF8}{bkai}
+我們是在CPU的環境下進行實作及試驗\\ \bigskip
+設定4000 ephocs 來進行訓練
+\end{CJK}
 \end{frame}
 
 \subsubsection{How many epochs you set for training?}
-\begin{frame}{How many epochs you set for training?}
-4000
-\end{frame}
+
 
 \subsubsection{Qualitative evaluation}
-\begin{frame}{Qualitative evaluation}
+\begin{frame}{Qualitative}
 \begin{CJK}{UTF8}{bkai}
-\small 共10種花，對每種花各作五次測試的結果 共50個測資皆正確。(Fig.\,\ref{fig:9})
+\small 共10種花，對每種花各做五次測試的結果 共50個測資皆正確。(Fig.\,\ref{fig:10})
  \end{CJK}
  \begin{figure}
     \includegraphics[width=7cm,height=5cm]{Qualitative(1).png}
-    \caption{9}
-    \label{fig:9}
-  \end{figure}
-\end{frame}
-
-
-\begin{frame}{Qualitative evaluation(cont.)}
-\begin{CJK}{UTF8}{bkai}
-(Fig.\,\ref{fig:10})
-\end{CJK}
- \begin{figure}
-    \includegraphics[width=7cm,height=5cm]{Qualitative(2).png}
     \caption{10}
     \label{fig:10}
   \end{figure}
 \end{frame}
 
-\begin{frame}{Qualitative evaluation(cont.)}
+
+\begin{frame}{Qualitative(cont.)}
 \begin{CJK}{UTF8}{bkai}
 (Fig.\,\ref{fig:11})
- \end{CJK}
+\end{CJK}
  \begin{figure}
-    \includegraphics[width=7cm,height=5cm]{Qualitative(3).png}
+    \includegraphics[width=7cm,height=5cm]{Qualitative(2).png}
     \caption{11}
     \label{fig:11}
   \end{figure}
 \end{frame}
 
-
-\begin{frame}{Qualitative evaluation(cont.)}
+\begin{frame}{Qualitative(cont.)}
 \begin{CJK}{UTF8}{bkai}
 (Fig.\,\ref{fig:12})
  \end{CJK}
  \begin{figure}
-    \includegraphics[width=7cm,height=5cm]{Qualitative(4).png}
+    \includegraphics[width=7cm,height=5cm]{Qualitative(3).png}
     \caption{12}
     \label{fig:12}
   \end{figure}
 \end{frame}
 
-\subsubsection{Quantitative evaluation}
-\begin{frame}{Quantitative evaluation}
 
+\begin{frame}{Qualitative(cont.)}
 \begin{CJK}{UTF8}{bkai}
 (Fig.\,\ref{fig:13})
  \end{CJK}
  \begin{figure}
-    \includegraphics[width=10cm]{Qauntitative.png}
+    \includegraphics[width=7cm,height=5cm]{Qualitative(4).png}
     \caption{13}
     \label{fig:13}
+  \end{figure}
+\end{frame}
+
+\subsubsection{Quantitative evaluation}
+\begin{frame}{Quantitative}
+
+\begin{CJK}{UTF8}{bkai}
+(Fig.\,\ref{fig:14})  
+以下是實作的結果值
+ \end{CJK}
+ \begin{figure}
+    \includegraphics[width=10cm]{Qauntitative.png}
+    \caption{14}
+    \label{fig:14}
   \end{figure}
 
 
 \end{frame}
 
 \subsection{Live demo of your work}
-\begin{frame}{Live demo of your work}
 
+\begin{frame}
+\center \huge End
 \end{frame}
-
 
 \end{document}
