@@ -7,6 +7,9 @@
 \usepackage[english]{babel}
 \usepackage{CJKutf8}
 \usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage[table]{xcolor}
+
 
 \def\myversion{1.0 }
 \date{}
@@ -64,11 +67,22 @@
 \section{Product Functions}
 %產品功能.
 \begin{CJK}{UTF8}{bkai}
-	從App開啟手機相機對準要辨識的花朵，系統偵測到後，
+	開啟App，將手機內的畫面對準要辨識的花朵，系統偵測到後，會立即在App上方顯示辨識出的品種及辨識度。
 \end{CJK}
 
 \section{User Classes and Characteristics}
 %用戶群跟特徵
+\begin{center}
+	\begin{CJK}{UTF8}{bkai}
+		
+		\begin{tabular}{| l | l |}
+		\hline
+			\rowcolor{gray}User & Description \\ \hline
+			學生及老師 & 可以做為課程教學使用  \\ \hline
+			校內訪客 & 對於花朵鑑賞有所興趣 \\ \hline
+		\end{tabular}
+	\end{CJK}
+\end{center}
 
 \section{Operating Environment}
 %操作環境
@@ -87,22 +101,51 @@ Smart Phone with Android OS ver.8.0
 	本專題原本採用InceptionV3 的影像辨識模型，但是若要將他移植到APP上，model size太大了，且InceptionV3架構過於龐大，可能不利於行動裝置的即時辨識，因此我們改用MobileNet模型，其缺點就是準確度會稍比InceptionV3低，但是換來了更快的速度跟更小的空間。
 \end{CJK}
 
+
 \chapter{External Interface Requirements}
 
 \section{User Interfaces}
 %使用者介面
+\begin{CJK}{UTF8}{bkai}
+		已App為主體，把model建立起來與相機功能連結將目標儲存同時載入model分析。使用者使用App將鏡頭對準，畫面上面會及時地呈現出所掃描的花朵品種及辨識度。
+\end{CJK}
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=5cm]{userinterface1.jpg}
+\end{center}
+\caption{User Interface}
+\end{figure}
 
 \section{Hardware Interfaces}
 %硬體介面
-ASUS_Z012DA (Smart Phone)
+ASUS_Z012DA (Smart Phone)  \\
+\begin{CJK}{UTF8}{bkai}
+		以智慧型手機當作App 的載體，儲存model及database。
+\end{CJK}
 
 \section{Software Interfaces}
 %軟體介面
 \subsection {tensorflow package}  
-
-
+\begin{CJK}{UTF8}{bkai}
+		外掛式套件，將圖片進行image classification幫助我們做影像辨識。
+\end{CJK}
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=3cm]{tensorflow.jpg}
+\end{center}
+\caption{Tensorflow package}
+\end{figure}
+	
 \subsection {android studio}
-
+\begin{CJK}{UTF8}{bkai}
+		用anroid studio 來達成掃描花朵後存成資料在進行傳遞給model 來辨識，並將的回傳辨識度及品種資訊呈現出來。
+\end{CJK}
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=3cm]{androidstudioicon.jpg}
+\end{center}
+\caption{Android Studio}
+\end{figure}
 
 
 \chapter{System Features}
@@ -110,16 +153,31 @@ ASUS_Z012DA (Smart Phone)
 \section{Description and Priority}
 %描述及優先權
 %example: 用戶可以通過向網格添加課程對象來創建季度課程計劃，其中的列表示季度。 可以刪除課程並通過拖放在四分之一之間移動。 可以編輯課程數據。 用戶可以指定必備和必修課程以及課程實現的單元數。
-Users may create a quarterly course schedule by adding course objects to a grid, the columns of which represent quarters. Courses may be deleted and moved between quarters via drag-and-drop. Course data may be edited. Users may specify prerequisite and corequisite courses as well as the number of units the course fulfills.
+\begin{CJK}{UTF8}{bkai}
+		如果使用者移動鏡頭，需要偵測物件的轉換。而偵測由tensorflow來執行判斷。
+\end{CJK}
 
 \section{Stimulus/Response Sequences}
-
+\begin{CJK}{UTF8}{bkai}
+		Stimulus: 	將App內顯示的鏡頭對準物件，系統將自行掃描有無偵測到花朵 \\
+		Response:  偵測後，進行辨識並顯示辨識結果
+\end{CJK}
 
 \section{Functional Requirements}
 %功能需求
-\begin{CJK}{UTF8}{bkai}
-	判斷出元智大學校園的花的種類。
-\end{CJK}
+\begin{center}
+	\begin{CJK}{UTF8}{bkai}
+		
+		\begin{tabular}{| l | l |}
+		\hline
+			\rowcolor{gray}Function name & Description \\ \hline
+			Classifier creat &  建立一個classifier 的class 讀進資料並設置好參數 \\ \hline
+			recognizeImage & 將資料做轉換，傳入tensorflow進行運算，return 最佳的預測結果 \\ \hline
+			layout & tensorflow.demo.RecognitionScoreView \ : 將label及其預測結果顯示在頁面 \\ \hline
+		\end{tabular}
+	\end{CJK}
+\end{center}
+
 
 \chapter{Other Nonfunctional Requirements}
 
