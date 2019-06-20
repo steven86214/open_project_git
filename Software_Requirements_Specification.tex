@@ -9,6 +9,7 @@
 \usepackage{latexsym}
 \usepackage{graphicx}
 \usepackage[table]{xcolor}
+\usepackage{blindtext}
 
 
 \def\myversion{1.0 }
@@ -40,20 +41,36 @@
 \section{Purpose}
 %此model的用途
 \begin{CJK}{UTF8}{bkai}
-	此專題，主要用於辨識元智大學校園內的花卉，讓使用者在校園中看到喜歡的花朵，可以用此專題滿足好奇心、求知慾。 \\
+	此專題，主要用於辨識元智大學校園內的花卉，讓使用者在校園中看到喜歡的花朵，可以用此專題滿足好奇心、求知慾同時也能寓教於樂。但也能推廣到其他場所，只要提供足夠的 database便能進行training model \\[6pt]
 	並且，有了這個模型，我們就不必記住花卉大量且不同的特徵，能夠輕易地識別出不同的品種同時又具有較高的辨別力。
 \end{CJK}
 
 \section{Intended Audience and Reading Suggestions}
 %目標使用者及閱讀建議
+
 \begin{CJK}{UTF8}{bkai}
-	主要面向為對於花卉鑑賞感興趣, 但無一定基礎的人，也可以用於教學。\\
+	
+\end{CJK}
+\begin{enumerate}
+\item
+\begin{CJK}{UTF8}{bkai}
+	使用者 : 主要面向為對於花卉鑑賞感興趣, 但無一定基礎的人，也可以用於教學。\\
 如果數據量足夠大，或許能夠突變種是從哪種植物轉變而來，對植物相關領域有所幫助。
 \end{CJK}
+\item
+\begin{CJK}{UTF8}{bkai}
+	特色景點或區域的經營者 : 如果所經營的地方，有一定數量及種類的花朵，能過透過這個App提供給顧客一個新的樂趣進而提升景點知名度。
+\end{CJK}
+
+\end{enumerate}
 
 \section{Project Scope}
 \begin{CJK}{UTF8}{bkai}
-為了講求辨識速度及控制model大小，以元智校園內出現的花朵為主，來訓練model。且訓練的data也是直接在學校內取材，以免因環境差異變化過大，導致辨識率下降。
+ 花朵辨識通常需要有一定的程度的相關知識及辨別力，為此需要大量的時間及精力學習，但也因為這樣可能會使人難以入門。
+\end{CJK}
+\begin{CJK}{UTF8}{bkai}
+\\[6pt] 為了講求辨識速度及縮短training的過程，我們選擇以元智校園內出現的花朵為主，來訓練model。且訓練的data也是直接在學校內取材，以免因環境差異變化過大，導致辨識率下降。 \\[6pt]
+這同時可以推廣到其他有特色的區域景點，鎖定一定範圍的區域來進行辨識，不僅能做到更精準的辨識與分類，且也能讓使用者知道在此區域能使用此App表示這邊有一定數量且不同種類花朵，無須漫無目的地去尋找，透過這個選擇，我們也能夠收到特定範圍內的使用者的回饋。
 \end{CJK}
 
 \chapter{Overall Description}
@@ -61,7 +78,7 @@
 \section{Product Perspective}
 %產品視角
 \begin{CJK}{UTF8}{bkai}
-只要有行動裝置就能夠隨時得知想要了解的花朵種類。
+整體而言，本專題的目標是作出一個元智大學校園內花朵的辨識系統。利用手機的攝像頭對準目標花朵，再對螢幕呈現出來的影像使用卷積神經網路(Convolutional Neural Network，CNN)進行分析，分析後將結果即該花資訊輸出在手機螢幕上。讓使用者能夠充分了解該花。
 \end{CJK}
 
 \section{Product Functions}
@@ -86,12 +103,42 @@
 
 \section{Operating Environment}
 %操作環境
-Smart Phone with Android OS ver.8.0 
+\begin{CJK}{UTF8}{bkai}
+執行環境依不同對象分為兩種。 \\
+\end{CJK}
+
+\begin{CJK}{UTF8}{bkai}
+使用者:
+\end{CJK}
+\begin{itemize}
+\item
+\begin{CJK}{UTF8}{bkai}
+硬體需求:  有攝像鏡頭的智慧型手機或平板 
+\end{CJK}
+\item
+\begin{CJK}{UTF8}{bkai}
+軟體需求: Android  版本 8.0 
+\end{CJK}
+\end{itemize}
+
+\begin{CJK}{UTF8}{bkai}
+營運方: 
+\end{CJK}
+\begin{itemize}
+\item
+\begin{CJK}{UTF8}{bkai}
+硬體需求:  桌上型或筆記電腦
+\end{CJK}
+\item
+\begin{CJK}{UTF8}{bkai}
+軟體需求:  Windows 10
+\end{CJK}
+\end{itemize}
 
 \section{Design and Implementation Constraints}
 %設計和實作問題
 \begin{CJK}{UTF8}{bkai}
-	因本專題欲專注於辨識校園內的花朵，所以在資料收集方面只有拍攝校園內的花朵之外貌，因此，本模型在對同種花但是長相有很大的差異的花(花在不同環境下，顏色、樣貌等會略有不同)，預測準度及信心度會較低。 \\
+	因本專題欲專注於辨識校園內的花朵，所以在資料收集方面只有拍攝校園內的花朵之外貌，因此，本模型在對同種花但是長相有很大的差異的花(花在不同環境下，顏色、樣貌等會略有不同)，預測準度及信心度會較低。 \\[6pt]
 	但是，從另一個角度來說，沒有其他環境下生長的花的資料，反而更能提升此模型對本校園中生長的花的預測準度。
 \end{CJK}
 
@@ -111,7 +158,7 @@ Smart Phone with Android OS ver.8.0
 \end{CJK}
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=5cm]{userinterface1.jpg}
+\includegraphics[width=5cm]{userinterface2.jpg}
 \end{center}
 \caption{User Interface}
 \end{figure}
@@ -125,8 +172,9 @@ ASUS_Z012DA (Smart Phone)  \\
 
 \section{Software Interfaces}
 %軟體介面
-\subsection {tensorflow package}  
+\subsection{TensorFlow package}
 \begin{CJK}{UTF8}{bkai}
+版本: 1.12.0 \\
 		外掛式套件，將圖片進行image classification幫助我們做影像辨識。
 \end{CJK}
 \begin{figure}[h]
@@ -135,9 +183,16 @@ ASUS_Z012DA (Smart Phone)  \\
 \end{center}
 \caption{Tensorflow package}
 \end{figure}
-	
-\subsection {android studio}
+
+\subsection{Python}
 \begin{CJK}{UTF8}{bkai}
+版本: 2.7.12 \\
+以python撰寫訓練model的程式，並輸出model。
+\end{CJK}
+
+\subsection{Android studio}
+\begin{CJK}{UTF8}{bkai}
+版本: 3.4 \\
 		用anroid studio 來達成掃描花朵後存成資料在進行傳遞給model 來辨識，並將的回傳辨識度及品種資訊呈現出來。
 \end{CJK}
 \begin{figure}[h]
@@ -171,9 +226,9 @@ ASUS_Z012DA (Smart Phone)  \\
 		\begin{tabular}{| l | l |}
 		\hline
 			\rowcolor{gray}Function name & Description \\ \hline
-			Classifier creat &  建立一個classifier 的class 讀進資料並設置好參數 \\ \hline
-			recognizeImage & 將資料做轉換，傳入tensorflow進行運算，return 最佳的預測結果 \\ \hline
-			layout & tensorflow.demo.RecognitionScoreView \ : 將label及其預測結果顯示在頁面 \\ \hline
+			Classifier creat &   建立一個 recognition的class \\ \hline
+			recognizeImage & 將資料做轉換，傳入tensorflow進行運算，將最佳結果存入recognition中的變數 \\ \hline
+			layout & tensorflow.demo.RecognitionScoreView \ : 從recognition中，叫出需要的變數內容，顯示到頁面上 \\ \hline
 		\end{tabular}
 	\end{CJK}
 \end{center}
