@@ -131,7 +131,11 @@
 \end{CJK}
 \item
 \begin{CJK}{UTF8}{bkai}
-軟體需求:  Windows 10
+軟體需求:  Windows 10 
+\end{CJK}
+\item
+\begin{CJK}{UTF8}{bkai}
+執行環境: CPU
 \end{CJK}
 \end{itemize}
 
@@ -167,7 +171,7 @@
 %硬體介面
 ASUS_Z012DA (Smart Phone)  \\
 \begin{CJK}{UTF8}{bkai}
-		以智慧型手機當作App 的載體，儲存model及database。
+		以智慧型手機當作App 的載體。
 \end{CJK}
 
 \section{Software Interfaces}
@@ -228,7 +232,8 @@ ASUS_Z012DA (Smart Phone)  \\
 			\rowcolor{gray}Function name & Description \\ \hline
 			Classifier creat &   建立一個 recognition的class \\ \hline
 			recognizeImage & 將資料做轉換，傳入tensorflow進行運算，將最佳結果存入recognition中的變數 \\ \hline
-			layout & tensorflow.demo.RecognitionScoreView \ : 從recognition中，叫出需要的變數內容，顯示到頁面上 \\ \hline
+			layout & tensorflow.demo.RecognitionScoreView \ : 在RecognitionScoreView.java中控制 \\ \hline
+				 & 輸出內容， 從recognition中，叫出需要的變數內容，顯示到頁面上\\ \hline
 		\end{tabular}
 	\end{CJK}
 \end{center}
